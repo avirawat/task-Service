@@ -5,6 +5,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import com.easyservice.service.ITaskService;
 
@@ -19,6 +21,11 @@ public class EasyserviceProjectRestapiApplication implements CommandLineRunner {
 
 	@Autowired
 	ITaskService taskService;
+	
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 
 	@Override
 	public void run(String... args) throws Exception {

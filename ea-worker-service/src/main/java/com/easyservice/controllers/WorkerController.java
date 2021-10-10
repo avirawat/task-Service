@@ -13,14 +13,28 @@ import com.easyservice.service.IWorkerService;
 @RestController
 @RequestMapping("/work-service")
 public class WorkerController {
-	
+
 	@Autowired
 	IWorkerService workService;
-	
-	//http://localhost:8073/work-service/work/workerName/Ram
+
+	// http://localhost:8073/work-service/work/workerName/Ram
 	@GetMapping("/work/workerName/{workerName}")
-	Worker getByWorkerName(@PathVariable("workerName")String workerName) throws WorkerNotFoundException{
+	Worker getByWorkerName(@PathVariable("workerName") String workerName) throws WorkerNotFoundException {
 		return workService.getByWorkerName(workerName);
 	}
-	
+
+	// http://localhost:8073/work-service/work/status/NA/workType/InteriorPainting
+	@GetMapping("/work/status/{status}/workType/{workType}")
+	Worker getByStatusAndWorkType(@PathVariable("status") String status, @PathVariable("workType") String workType)
+			throws WorkerNotFoundException {
+		return workService.getByStatusAndWorkType(status, workType);
+	}
+
+	// http://localhost:8073/work-service/work/workDuration/8/workType/InteriorPainting
+	@GetMapping("/work/workDuration/{workDuration}/workType/{workType}")
+	Worker getByDurationAndWorkType(@PathVariable("workDuration") int workDuration,
+			@PathVariable("workType") String workType) throws WorkerNotFoundException {
+		return workService.getByDurationAndWorkType(workDuration, workType);
+	}
+
 }

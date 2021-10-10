@@ -23,7 +23,7 @@ public class TaskServiceImpl implements ITaskService {
 	@Autowired
 	RestTemplate restTemplate;
 
-	private static final String BASEURL = "http://localhost:8073/work-service/";
+	private static final String BASEURL = "http://localhost:8073/work-service/work";
 
 	@Autowired
 	ITaskRepository taskRepository;
@@ -84,7 +84,9 @@ public class TaskServiceImpl implements ITaskService {
 	public int updateStatus(String value, int workerId) {
 		return taskRepository.updateStatus(value, workerId);
 	}
-
+	
+	
+	///work/workerName/{workerName}
 	@Override
 	public Worker getByWorkerName(String workerName) throws WorkerNotFoundException {
 		String url = BASEURL + "/workerName/" + workerName;

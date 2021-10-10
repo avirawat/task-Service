@@ -9,13 +9,9 @@ import com.easyservice.model.Worker;
 public interface IWorkerService {
 	
 	Worker getByWorkerName(String workerName) throws WorkerNotFoundException;
-	//Worker getByWorkerNameAndStatus(String workName,String status) throws
-		// WorkerNotFoundException;
-		// Worker getByWorkerNameAndWorkType(String workName,String workType) throws
-		// WorkerNotFoundException;
+	
+	Worker getByStatusAndWorkType(String status, String workType) throws WorkerNotFoundException;
 
-	//Task getByWorkType(String workType) throws WorkerNotFoundException;
-	//Worker getByWorkerNameAndStatus(String workName,String status) throws WorkerNotFoundException;
-	//Worker getByWorkerNameAndWorkType(String workName,String workType) throws WorkerNotFoundException;
+	Worker getByDurationAndWorkType(int workDuration, String workType) throws WorkerNotFoundException;
 	
 }

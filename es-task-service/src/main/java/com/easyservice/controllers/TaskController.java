@@ -90,18 +90,23 @@ public class TaskController {
 		return taskService.getByTaskStartDateAndEndDate(sDate, eDate);
 	}
 
+	// ************************worker Part***************************************************
+
+	//http://localhost:8072/task-service/task/workerName/Ram
 	@GetMapping("/task/workerName/{workerName}")
 	Worker getByWorkerName(@PathVariable("workerName") String workerName) throws WorkerNotFoundException {
 		return taskService.getByWorkerName(workerName);
 	}
-
-	@GetMapping("/task/status/{status}/workerType/{workerType}")
+	
+	//http://localhost:8072/task-service/task/status/NA/workType/InteriorPainting
+	@GetMapping("/task/status/{status}/workType/{workType}")
 	Worker getByStatusAndWorkType(@PathVariable("status") String status, @PathVariable("workType") String workType)
 			throws WorkerNotFoundException {
 		return taskService.getByStatusAndWorkType(status, workType);
 	}
 
-	@GetMapping("/task/workDuration/{workDuration}/workerType/{workerType}")
+	//http://localhost:8072/task-service/task/workDuration/8/workType/InteriorPainting
+	@GetMapping("/task/workDuration/{workDuration}/workType/{workType}")
 	Worker getByDurationAndWorkType(@PathVariable("workDuration") int workDuration,
 			@PathVariable("workType") String workType) throws WorkerNotFoundException {
 		return taskService.getByDurationAndWorkType(workDuration, workType);

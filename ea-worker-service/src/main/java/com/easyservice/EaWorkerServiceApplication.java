@@ -22,6 +22,8 @@ public class EaWorkerServiceApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println(workService.getByWorkerName("Ram"));
+		System.out.println(workService.getByStatusAndWorkType("NA","InteriorPainting"));
+		System.out.println(workService.getByDurationAndWorkType(8,"InteriorPainting"));
 		
 	}
 

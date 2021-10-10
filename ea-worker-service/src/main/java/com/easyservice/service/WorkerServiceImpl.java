@@ -17,6 +17,16 @@ public class WorkerServiceImpl implements IWorkerService {
 	public Worker getByWorkerName(String workerName) throws WorkerNotFoundException {
 		return workRepository.findByWorkerName(workerName);
 	}
+
+	@Override
+	public Worker getByStatusAndWorkType(String status, String workType) throws WorkerNotFoundException {
+		return workRepository.findByWStatusAndWorkType(status, workType);
+	}
+
+	@Override
+	public Worker getByDurationAndWorkType(int workDuration, String workType) throws WorkerNotFoundException {
+		return workRepository.findByDurationAndWorkType(workDuration, workType);
+	}
 	
 	
 
