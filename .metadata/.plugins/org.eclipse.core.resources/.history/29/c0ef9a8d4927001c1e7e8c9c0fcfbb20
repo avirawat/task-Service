@@ -1,0 +1,19 @@
+package com.easyservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+import com.easyservice.model.Maintenance;
+
+@SpringBootApplication
+@EnableEurekaClient
+public class EasyserviceProjectRestapiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EasyserviceProjectRestapiApplication.class, args);
+		
+	
+	}
+
+}

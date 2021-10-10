@@ -1,0 +1,13 @@
+package com.easyservice.repository;
+
+import org.springframework.stereotype.Repository;
+
+import com.easyservice.model.Worker;
+
+
+
+@Repository
+public interface ITaskRepository extends {
+
+
+}

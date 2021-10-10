@@ -1,0 +1,9 @@
+package com.easyservice.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.easyservice.model.Task;
+
+public interface ITaskRepository extends JpaRepository<Task, Integer> {
+
+}

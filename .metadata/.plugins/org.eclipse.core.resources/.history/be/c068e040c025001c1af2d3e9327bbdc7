@@ -1,0 +1,29 @@
+package com.easyservice.model;
+
+import java.time.LocalDate;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class Task {
+	
+	private Integer taskId;
+	private String taskName;
+	private String organiser;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	private Integer duration;
+	private enum status{
+		DEFINED,INPROGRESS,COMPLETED,ONHOLD;
+	}
+	private Integer projectId;
+}

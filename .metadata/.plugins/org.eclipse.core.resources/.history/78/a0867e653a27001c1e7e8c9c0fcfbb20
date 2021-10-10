@@ -1,0 +1,5 @@
+package com.easyservice.repository;
+
+public interface ITaskRepository {
+
+}

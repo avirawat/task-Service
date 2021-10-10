@@ -1,0 +1,25 @@
+package com.easyservice.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.easyservice.exception.WorkerNotFoundException;
+import com.easyservice.model.Task;
+import com.easyservice.model.Worker;
+
+@Repository
+public interface ITaskRepository extends JpaRepository<Task, Integer> {
+	
+	@Modifying
+	@Query(value="update task set worker_id=?1 where task_id=?2",nativeQuery = true)
+	public int assignTask(int workerId,int taskId);
+	
+//	@Query(value="select * from worker where work_type=?1",nativeQuery = true)
+//	Task findByWorkType(String workType) throws WorkerNotFoundException;
+
+
+}

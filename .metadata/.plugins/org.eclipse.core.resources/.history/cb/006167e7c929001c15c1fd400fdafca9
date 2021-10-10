@@ -1,0 +1,13 @@
+package com.easyservice.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface IWorkerService {
+	
+	
+	//Task getByWorkType(String workType) throws WorkerNotFoundException;
+	//Worker getByWorkerNameAndStatus(String workName,String status) throws WorkerNotFoundException;
+	//Worker getByWorkerNameAndWorkType(String workName,String workType) throws WorkerNotFoundException;
+	
+}

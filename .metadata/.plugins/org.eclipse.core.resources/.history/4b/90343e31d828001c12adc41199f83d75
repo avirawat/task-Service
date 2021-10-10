@@ -1,0 +1,5 @@
+package com.easyservice.exception;
+
+public class WorkerNotFoundException extends Exception {
+
+}

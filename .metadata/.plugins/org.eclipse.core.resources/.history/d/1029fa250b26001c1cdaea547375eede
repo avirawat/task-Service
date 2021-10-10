@@ -1,0 +1,13 @@
+package com.easyservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class EasyserviceProjectRestapiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EasyserviceProjectRestapiApplication.class, args);
+	}
+
+}

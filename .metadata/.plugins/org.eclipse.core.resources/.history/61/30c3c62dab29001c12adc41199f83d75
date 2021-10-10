@@ -1,0 +1,10 @@
+package com.easyservice.service;
+
+
+
+@Service
+public class WorkerServiceImpl implements IWorkerService {
+	
+	
+
+}

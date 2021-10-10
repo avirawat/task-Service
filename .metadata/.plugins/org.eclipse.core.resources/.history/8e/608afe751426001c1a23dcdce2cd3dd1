@@ -1,0 +1,28 @@
+package com.easyservice.model;
+
+import java.time.LocalDate;
+import java.util.Set;
+
+import javax.persistence.Entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+public class Workers {
+
+		private Integer wokerId;
+		private String workerName;
+		private String workerStatus;
+		private Integer contactNum;
+		private String workType;
+		private Integer taskId;
+}

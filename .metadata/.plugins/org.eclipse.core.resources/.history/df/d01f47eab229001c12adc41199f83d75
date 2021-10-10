@@ -1,0 +1,69 @@
+package com.easyservice.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.easyservice.exception.TaskIdNotFoundException;
+import com.easyservice.model.Task;
+import com.easyservice.service.ITaskService;
+
+@RestController
+@RequestMapping("/task-service")
+public class TaskController {
+
+	@Autowired
+	ITaskService taskService;
+
+	// http://localhost:8072/task-service/task
+	@PostMapping("/task")
+	Task addTask(@RequestBody Task task) {
+		Task taskAdded = taskService.addTask(task);
+		return taskAdded;
+	}
+
+	// http://localhost:8072/task-service/task/taskId/205
+	@DeleteMapping("/task/taskId/{taskId}")
+	String deleteTask(@PathVariable("taskId") int taskId) {
+		taskService.deleteTask(taskId);
+		return "Value Deleted";
+	}
+
+	// http://localhost:8072/task-service/task
+	@PutMapping("/task")
+	String updateTask(@RequestBody Task task) {
+		taskService.updateTask(task);
+		return "Value updated";
+	}
+
+	// http://localhost:8072/task-service/task/taskId/200
+	@GetMapping("/task/taskId/{taskId}")
+	Task getById(@PathVariable("taskId") int taskId) throws TaskIdNotFoundException {
+		return taskService.getById(taskId);
+	}
+
+	// http://localhost:8072/task-service/task
+	@GetMapping("/task")
+	List<Task> getAllTask() {
+		return taskService.getAllTask();
+	}
+
+	// http://localhost:8072/task-service/task/taskId/200/workerId/300
+	@GetMapping("/task/taskId/{taskId}/workerId/{workerId}")
+	String assignTaskToworker(@PathVariable("taskId") int taskId, @PathVariable("workerId") int workerId) {
+		taskService.assignTaskToWorker(taskId, workerId);
+		return "work Assigned";
+	}
+//	@GetMapping("/task/workType/{workType}")
+//	Task getByWorkType(@PathVariable("workType")String workType) throws WorkerNotFoundException{
+//		return taskService.getByWorkType(workType);
+//	}
+}

@@ -1,0 +1,75 @@
+package com.easyservice.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.easyservice.exception.TaskNotFoundException;
+import com.easyservice.exception.WorkerNotFoundException;
+import com.easyservice.model.Task;
+import com.easyservice.model.Worker;
+import com.easyservice.repository.ITaskRepository;
+
+@Service
+@Transactional
+public class TaskServiceImpl implements ITaskService {
+	
+	@Autowired
+	ITaskRepository taskRepository;
+	
+	@Override
+	public Task addTask(Task task) {
+		return taskRepository.save(task);
+		
+	}
+
+	@Override
+	public void deleteTask(int taskId) {
+		taskRepository.deleteById(taskId);
+		
+	}
+
+	@Override
+	public void updateTask(Task task) {
+		taskRepository.save(task);
+		
+	}
+
+	@Override
+	public Task getById(int taskId) {
+		return taskRepository.findById(taskId).get();
+	}
+
+	@Override
+	public List<Task> getAllTask() {
+		return taskRepository.findAll();
+	}
+
+	@Override
+	public void assignTaskToWorker(int taskId,int workerId) throws WorkerNotFoundException {
+		taskRepository.assignTask(taskId, workerId);
+		
+	}
+
+	@Override
+	public void getByMaintenanceId(int maintenanceId) throws TaskNotFoundException {
+		// TODO Auto-generated method stub
+		
+	}
+
+//	@Override
+//	public Worker getByWorkerNameAndStatus(String workName, String status) throws WorkerNotFoundException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+//	@Override
+//	public Worker getByWorkerNameAndWorkType(String workName, String workType) throws WorkerNotFoundException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+}

@@ -1,0 +1,29 @@
+package com.easyservice;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+import com.easyservice.model.Task;
+import com.easyservice.service.ITaskService;
+
+@SpringBootApplication
+@EnableEurekaClient
+public class EasyserviceProjectRestapiApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(EasyserviceProjectRestapiApplication.class, args);
+		
+	}
+	@Autowired
+	ITaskService taskService;
+
+	@Override
+	public void run(String... args) throws Exception {
+		Task task=new Task();
+		
+	}
+
+}

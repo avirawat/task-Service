@@ -1,0 +1,26 @@
+package com.easyservice.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.easyservice.model.Status;
+import com.easyservice.model.Task;
+
+@Repository
+public interface ITaskRepository extends JpaRepository<Task, Integer> {
+
+	@Modifying
+	@Query(value = "update worker set task_id=?1 where worker_id=?2 ", nativeQuery = true)
+	public int assignTask(int taskId,int workerId);
+	
+	@Query("from Task where maintenance_id=?1")
+	Task findByMaintenanceId(int maintenanceId);
+	
+	@Query("from Task where organiser=?1 and t_status=?2")
+	Task findByOrganiserAndStatus(String organiser,Status status);
+	
+	
+
+}

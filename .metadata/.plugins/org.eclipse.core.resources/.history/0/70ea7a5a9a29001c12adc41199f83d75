@@ -1,0 +1,29 @@
+package com.easyservice.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.easyservice.exception.IdNotFoundException;
+import com.easyservice.exception.WorkerNotFoundException;
+import com.easyservice.model.Task;
+import com.easyservice.model.Worker;
+
+@Service
+public interface ITaskService {
+	
+	//crud
+	Task addTask(Task task);
+	void deleteTask(int taskId);
+	//int updateTask(int taskId,int workerId);
+	Task getById(int taskId) throws IdNotFoundException;
+	List<Task>getAllTask();
+	
+	// worker operation
+	List<Worker>getAllWorkers();
+//	boolean assignTaskToWorker();
+//	Worker getByWorkType(String workType) throws WorkerNotFoundException;
+	//Worker getByWorkerNameAndStatus(String workName,String status) throws WorkerNotFoundException;
+	//Worker getByWorkerNameAndWorkType(String workName,String workType) throws WorkerNotFoundException;
+	
+}

@@ -1,0 +1,54 @@
+package com.easyservice.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Worker {
+
+	@Id
+	@GeneratedValue(generator = "worker_gen", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "worker_gen", sequenceName = "worker_seq", initialValue = 300, allocationSize = 1)
+
+	private Integer wokerId;
+	@Column(length = 20)
+	private String workerName;
+	@Column(length = 20)
+	@Enumerated(EnumType.STRING)
+	private Status wStatus;
+	private Integer contactNum;
+	private String workType;
+	
+	@ManyToOne
+	@JoinColumn(name="task_id")
+	Task task;
+
+	public Worker(String workerName, String workerStatus, Integer contactNum, String workType) {
+		super();
+		this.workerName = workerName;
+		this.workerStatus = workerStatus;
+		this.contactNum = contactNum;
+		this.workType = workType;
+	}
+
+	
+	
+	
+}

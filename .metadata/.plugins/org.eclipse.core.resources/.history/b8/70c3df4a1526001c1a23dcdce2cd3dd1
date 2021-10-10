@@ -1,0 +1,8 @@
+spring.datasource.url=jdbc:mysql://sql6.freesqldatabase.com:3306/sql6442318
+spring.datasource.username=	sql6442318
+spring.datasource.password=nnYZ8lxi4d
+
+# dialect to inform hibernate which DB is used
+spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=create

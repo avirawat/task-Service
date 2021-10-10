@@ -1,0 +1,9 @@
+package com.easyservice.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface ITaskService {
+	
+	void addTask(Task task);
+}
